@@ -1,0 +1,37 @@
+{
+  "date": "2021-03-29T22:12:13.012Z",
+  "integer": 43,
+  "list": [
+    1623756266,
+    943020290,
+    -1893353260,
+    -2087097735
+  ],
+  "user": {
+    "name": "Rodger Ullrich",
+    "address": "2016 Heidenreich Gardens",
+    "avatarUrl": "https://robohash.org/rnbtefod.png",
+    "bio": "Itaque minus unde atque delectus neque.",
+    "date": "2000-08-16T14:33:44.400Z",
+    "json": "foo"
+  },
+  "json": "foo",
+  "direction": "NORTH",
+  "nodes": [
+    {
+      "__typename": "Product",
+      "id": "8632207099767740251",
+      "name": "odit"
+    },
+    {
+      "__typename": "Review",
+      "id": "-6656861009728575808",
+      "text": "sit"
+    },
+    {
+      "__typename": "Product",
+      "id": "790233628726557936",
+      "name": "iste"
+    }
+  ]
+}

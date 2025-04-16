@@ -1,0 +1,22 @@
+[versions]
+kotlin-plugin = "2.1.20"
+ksp = "2.1.20-2.0.0"
+apollo = "4.1.1"
+gratatouille = "0.0.5-SNAPSHOT-75e538dcb65df0cf33f4abe2165110f95082f319"
+
+[libraries]
+kgp = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-plugin" }
+ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+gradle-api-min = { group = "dev.gradleplugins", name = "gradle-api", version = "8.0" }
+kgp-min = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version = "1.9.0" }
+apollo-ast = { group = "com.apollographql.apollo", name = "apollo-ast", version.ref = "apollo" }
+datafaker = "net.datafaker:datafaker:2.4.2"
+apollo-api = { group = "com.apollographql.apollo", name = "apollo-api", version.ref = "apollo" }
+apollo-execution = { group = "com.apollographql.apollo", name = "apollo-execution", version.ref = "apollo" }
+kotlinpoet = "com.squareup:kotlinpoet:1.18.0"
+coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1"
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test" } # the Kotlin plugin resolves the version
+librarian-gradle-plugin = "com.gradleup.librarian:librarian-gradle-plugin:0.0.8-SNAPSHOT-cd822254de75426f8f047a50bae467da872cc912"
+gratatouille-gradle-plugin = { module = "com.gradleup.gratatouille:com.gradleup.gratatouille.gradle.plugin", version.ref = "gratatouille" }
+gratatouille-runtime = { module = "com.gradleup.gratatouille:gratatouille-runtime", version.ref = "gratatouille" }
+kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1"

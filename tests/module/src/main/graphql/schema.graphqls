@@ -1,0 +1,42 @@
+type Query {
+    integer: Int!
+    list: [Int!]
+    user: User!
+    date: Date
+    json: Json
+    node: Node!
+    nodes: [Node!]!
+    direction: Direction
+}
+
+enum Direction {
+    SOUTH
+    NORTH
+    EAST
+    WEST
+}
+scalar Date
+scalar Json
+
+interface Node {
+    id: ID!
+}
+
+type Product implements Node {
+    id: ID!
+    name: String!
+}
+
+type Review implements Node {
+    id: ID!
+    text: String!
+}
+
+type User {
+    name: String!
+    address: String!
+    avatarUrl: String!
+    bio: String!
+    date: Date
+    json: Json
+}
