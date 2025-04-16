@@ -1,0 +1,21 @@
+public abstract class com/apollographql/faker/ApolloFakerExtension {
+	public fun <init> (Lorg/gradle/api/Project;)V
+	public final fun service (Ljava/lang/String;Lorg/gradle/api/Action;)V
+}
+
+public abstract class com/apollographql/faker/ApolloFakerPlugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class com/apollographql/faker/ApolloFakerPluginKt {
+	public static final fun getApolloFaker (Lorg/gradle/api/Project;)Lcom/apollographql/faker/ApolloFakerPlugin;
+}
+
+public final class com/apollographql/faker/ApolloFakerService {
+	public fun <init> (Lorg/gradle/api/Project;Ljava/lang/String;)V
+	public final fun getPackageName ()Lorg/gradle/api/provider/Property;
+	public final fun getSchemaFiles ()Lorg/gradle/api/file/ConfigurableFileCollection;
+}
+

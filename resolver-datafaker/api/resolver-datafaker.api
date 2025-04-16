@@ -1,0 +1,7 @@
+public final class com/apollographql/faker/datafaker/DataFakerResolver : com/apollographql/apollo/execution/Resolver {
+	public fun <init> ()V
+	public fun <init> (Ljava/util/Locale;)V
+	public synthetic fun <init> (Ljava/util/Locale;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun resolve (Lcom/apollographql/apollo/execution/ResolveInfo;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

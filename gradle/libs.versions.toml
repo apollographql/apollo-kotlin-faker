@@ -2,7 +2,7 @@
 kotlin-plugin = "2.1.20"
 ksp = "2.1.20-2.0.0"
 apollo = "4.1.1"
-gratatouille = "0.0.5-SNAPSHOT-75e538dcb65df0cf33f4abe2165110f95082f319"
+gratatouille = "0.0.6-SNAPSHOT-68dc415c1a91c7b7e194655df1c1e9c1a16bb55e"
 
 [libraries]
 kgp = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin-plugin" }

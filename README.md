@@ -16,7 +16,16 @@
 
 Apollo Kotlin Faker makes it easy to fake a GraphQL server during the early phases of development or while testing. 
 
-Apollo Faker is strongly inspired by [graphql-faker](https://github.com/graphql-kit/graphql-faker).
+Apollo Faker is strongly inspired by [graphql-faker](https://github.com/graphql-kit/graphql-faker) and uses similar directives:
+
+```graphql
+type User {
+  name: String @fake(type: firstName)
+  avatar: String! @fake(type: avatarUrl)  
+  company: String @examples(values: ["Hooli", "Pied Piper"])
+  pets: [Pet] @listLength(min: 1, max: 10)
+}
+```
 
 ## 🌈 Getting started
 
@@ -30,28 +39,27 @@ plugins {
 
 apolloFaker {
   service("service") {
-    schemaFiles.from("src/main/graphql/schema.graphqls")
+    schemaFiles.from(files("src/main/graphql/"))
     packageName.set("com.example")
   }
 }
 ```
 
-The plugin creates a `${service}ExecutableSchemaBuilder()` factory function that returns an `ExecutableSchema.Builder` instance that you can configure with a `DataFakerResolver`:
+The plugin creates a `${service}ExecutableSchema()` factory function that returns an `ExecutableSchema.Builder` instance that you can configure with a `DataFakerResolver`:
 
 ```kotlin
 val executableSchema = serviceExecutableSchemaBuilder()
-  .resolver(DataFakerResolver())
-  .build()
-
 val response = executableSchema.execute()
+
+println(response.data)
 ```
 
-
-
-## ⚙️ Custom scalars
-
-Because the coercing of custom scalars is implementation specific, 
-
 ## ✅ Requirements
+
+Apollo Faker is JVM only for now.
+
+* Java 11
+* Kotlin Gradle Plugin 1.9.0+
+* Gradle 8.0+
 
 
