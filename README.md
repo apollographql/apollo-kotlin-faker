@@ -18,8 +18,18 @@ Apollo Kotlin Faker makes it easy to fake a GraphQL server during the early phas
 
 Apollo Faker is strongly inspired by [graphql-faker](https://github.com/graphql-kit/graphql-faker) and uses similar directives:
 
+
+
+## 🌈 Getting started
+
+Put your schema in `src/main/graphql/schema.graphql` and add an `extra.graphqls` file next to it.
+
+Define how to generate fake data using [fakes directives](https://specs.apollo.dev/fakes/v0.0/):  
+
 ```graphql
-type User {
+extend schema @link(url: "https://specs.apollo.dev/fakes/v0.0/", import: ["@fake", "@examples", "@listSize", "Type", "Value"])
+
+extend type User {
   name: String @fake(type: firstName)
   birthdate: Date @fake(type: pastDate) 
   avatar: String! @fake(type: avatarUrl)  
@@ -27,8 +37,6 @@ type User {
   pets: [Pet] @listLength(min: 1, max: 10)
 }
 ```
-
-## 🌈 Getting started
 
 Add the `com.apollographql.faker` plugin to your build scripts:
 
