@@ -21,6 +21,7 @@ Apollo Faker is strongly inspired by [graphql-faker](https://github.com/graphql-
 ```graphql
 type User {
   name: String @fake(type: firstName)
+  birthdate: Date @fake(type: pastDate) 
   avatar: String! @fake(type: avatarUrl)  
   company: String @examples(values: ["Hooli", "Pied Piper"])
   pets: [Pet] @listLength(min: 1, max: 10)
@@ -49,11 +50,44 @@ The plugin creates a `${service}ExecutableSchema()` factory function that return
 
 ```kotlin
 val executableSchema = serviceExecutableSchemaBuilder()
-val response = executableSchema.execute()
+val response = executableSchema.execute(
+  """
+  {
+    user {
+      name
+      birthdate
+      avatar
+      company
+      pets {
+        name
+      }
+    }
+  }
+  """.toGraphQLRequest())
 
 println(response.data)
 ```
 
+Response:
+
+```json
+{
+  "data": {
+    "user": {
+      "name": "Rodger Ullrich",
+      "birthdate": "2000-08-16T14:33:44.400Z",
+      "avatar": "https://robohash.org/rnbtefod.png",
+      "company": "Pier Piper",
+      "pets": [
+        { "name": "Russel" },
+        { "name": "Bosco" },
+        { "name": "Zulma" },
+        { "name": "Rocky" }
+      ]
+    }
+  }
+}
+```
 ## ✅ Requirements
 
 Apollo Faker is JVM only for now.
