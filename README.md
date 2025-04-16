@@ -54,7 +54,7 @@ apolloFaker {
 }
 ```
 
-The plugin creates a `${service}ExecutableSchema()` factory function that returns an `ExecutableSchema.Builder` instance that you can configure with a `DataFakerResolver`:
+The plugin creates a `${service}ExecutableSchema()` factory function that returns an `ExecutableSchema` instance that you can run your queries against:
 
 ```kotlin
 val executableSchema = serviceExecutableSchemaBuilder()
