@@ -37,8 +37,8 @@ abstract class GenerateTypes: DefaultTask() {
       .definitions
       .filterIsInstance<GQLEnumTypeDefinition>()
       .firstOrNull {
-        it.name == "Type"
-      } ?: error("Cannot find 'Type' enum in the fake schema")
+        it.name == "FakeType"
+      } ?: error("Cannot find 'FakeType' enum in the fake schema")
 
     val source = buildString {
       appendLine("""
