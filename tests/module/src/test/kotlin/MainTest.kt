@@ -2,12 +2,10 @@ import com.apollographql.apollo.api.json.buildJsonString
 import com.apollographql.apollo.api.json.writeAny
 import com.apollographql.apollo.execution.toGraphQLRequest
 import com.example.serviceExecutableSchema
-import com.google.common.truth.ExpectFailure.assertThat
 import com.google.common.truth.Truth
 import kotlinx.coroutines.runBlocking
 import java.io.File
 import kotlin.test.Test
-import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 class MainTest {
@@ -52,9 +50,7 @@ class MainTest {
         // Uncomment to update the data
 //         File("test-data/data.json").parentFile.mkdirs()
 //         File("test-data/data.json").writeText(jsonData)
-        println(jsonData)
         Truth.assertThat(File("test-data/data.json").readText()).isEqualTo(jsonData)
-        assertEquals(File("test-data/data.json").readText(), jsonData)
       }
   }
 }

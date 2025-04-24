@@ -4,6 +4,11 @@ import com.apollographql.apollo.ast.*
 import com.apollographql.apollo.execution.ResolveInfo
 import com.apollographql.apollo.execution.Resolver
 import net.datafaker.Faker
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZoneOffset
 import java.util.*
 import kotlin.random.Random
 import java.util.Random as JavaRandom
@@ -84,9 +89,9 @@ class DataFakerResolver(private val locale: Locale = Locale.ROOT) : Resolver {
         FakeType.COMPANY_CATCH_PHRASE -> faker.company().catchPhrase()
         FakeType.COMPANY_BS -> faker.company().bs()
         FakeType.DATE -> faker.timeAndDate().between(
-          GregorianCalendar(2000, 1, 1).toInstant(),
-          GregorianCalendar(2023, 1, 1).toInstant()
-        ).toEpochMilli().toString()
+          LocalDate.of(2000, 1, 1).atStartOfDay().toInstant(ZoneOffset.UTC),
+          LocalDate.of(2030, 1, 1).atStartOfDay().toInstant(ZoneOffset.UTC)
+        ).toString()
         FakeType.PAST_DATE -> faker.timeAndDate().past().toString()
         FakeType.FUTURE_DATE -> faker.timeAndDate().future().toString()
         FakeType.CURRENCY_CODE -> faker.money().currencyCode()
