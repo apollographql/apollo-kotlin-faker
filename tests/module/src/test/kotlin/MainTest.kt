@@ -50,8 +50,8 @@ class MainTest {
           writeAny(data)
         }
         // Uncomment to update the data
-        // File("test-data/data.json").parentFile.mkdirs()
-        // File("test-data/data.json").writeText(jsonData)
+//         File("test-data/data.json").parentFile.mkdirs()
+//         File("test-data/data.json").writeText(jsonData)
         println(jsonData)
         Truth.assertThat(File("test-data/data.json").readText()).isEqualTo(jsonData)
         assertEquals(File("test-data/data.json").readText(), jsonData)
