@@ -27,14 +27,15 @@ Put your schema in `src/main/graphql/schema.graphql` and add an `extra.graphqls`
 Define how to generate fake data using [fakes directives](https://specs.apollo.dev/fakes/v0.0/):  
 
 ```graphql
-extend schema @link(url: "https://specs.apollo.dev/fakes/v0.0/", import: ["@fake", "@examples", "@listSize", "Type", "Value"])
+extend schema @link(url: "https://specs.apollo.dev/fakes/v0.0/", import: ["@fakeExamples", "@fakeList", "@fake", "FakeType", "FakeValue"])
+
 
 extend type User {
-  name: String @fake(type: firstName)
-  birthdate: Date @fake(type: pastDate) 
-  avatar: String! @fake(type: avatarUrl)  
-  company: String @examples(values: ["Hooli", "Pied Piper"])
-  pets: [Pet] @listLength(min: 1, max: 10)
+  name: String @fake(type: FIRST_NAME)
+  birthdate: Date @fake(type: PAST_DATE) 
+  avatar: String! @fake(type: AVATAR_URL)  
+  company: String @fakeExamples(values: ["Hooli", "Pied Piper"])
+  pets: [Pet] @fakeList(minSize: 1, maxSize: 10)
 }
 ```
 

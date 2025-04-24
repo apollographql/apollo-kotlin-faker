@@ -1,18 +1,18 @@
-extend schema @link(url: "https://specs.apollo.dev/fakes/v0.0/", import: ["@examples", "@listSize", "@fake", "Type", "Value"])
+extend schema @link(url: "https://specs.apollo.dev/fakes/v0.0/", import: ["@fakeExamples", "@fakeList", "@fake", "FakeType", "FakeValue"])
 
 extend type Query {
-    integer: Int! @examples(values: [42, 43])
-    list: [Int!] @listSize(min: 3, max: 5) @fake(type: number)
-    nodes: [Node!]! @listSize(min: 3, max: 3)
+    integer: Int! @fakeExamples(values: [42, 43])
+    list: [Int!] @fakeList(minSize: 3, maxSize: 5) @fake(type: NUMBER)
+    nodes: [Node!]! @fakeList(minSize: 3, maxSize: 3)
 }
 
-extend scalar Date @fake(type: date)
-extend scalar Json @examples(values: [{key: value}, [0,1,2], "foo"])
+extend scalar Date @fake(type: DATE)
+extend scalar Json @fakeExamples(values: [{key: value}, [0,1,2], "foo"])
 
 extend type User {
-    name: String! @fake(type: fullName)
-    address: String! @fake(type: streetAddress)
-    avatarUrl: String! @fake(type: avatarUrl)
-    banner: String! @fake(type: imageUrl)
-    bio: String! @fake(type: lorem)
+    name: String! @fake(type: FULL_NAME)
+    address: String! @fake(type: STREET_ADDRESS)
+    avatarUrl: String! @fake(type: AVATAR_URL)
+    banner: String! @fake(type: IMAGE_URL)
+    bio: String! @fake(type: LOREM)
 }

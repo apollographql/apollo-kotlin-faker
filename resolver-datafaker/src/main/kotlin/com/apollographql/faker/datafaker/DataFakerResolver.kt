@@ -8,6 +8,8 @@ import java.util.*
 import kotlin.random.Random
 import java.util.Random as JavaRandom
 
+private val fakeList = "fakeList"
+
 class DataFakerResolver(private val locale: Locale = Locale.ROOT) : Resolver {
   override suspend fun resolve(resolveInfo: ResolveInfo): Any? {
 
@@ -63,62 +65,62 @@ class DataFakerResolver(private val locale: Locale = Locale.ROOT) : Resolver {
     if (fakeType != null) {
       val faker = Faker(locale, JavaRandom(seed))
       return when (fakeType) {
-        FakeType.zipCode -> faker.address().zipCode()
-        FakeType.city -> faker.address().city()
-        FakeType.streetName -> faker.address().streetName()
-        FakeType.streetAddress -> faker.address().streetAddress()
-        FakeType.secondaryAddress -> faker.address().secondaryAddress()
-        FakeType.country -> faker.address().country()
-        FakeType.countryCode -> faker.address().countryCode()
-        FakeType.state -> faker.address().state()
-        FakeType.stateAbbr -> faker.address().stateAbbr()
-        FakeType.latitude -> faker.address().latitude()
-        FakeType.longitude -> faker.address().longitude()
-        FakeType.colorName -> faker.color().name()
-        FakeType.productName -> faker.commerce().productName()
-        FakeType.money -> faker.commerce().price()
-        FakeType.productMaterial -> faker.commerce().material()
-        FakeType.companyName -> faker.company().name()
-        FakeType.companyCatchPhrase -> faker.company().catchPhrase()
-        FakeType.companyBS -> faker.company().bs()
-        FakeType.date -> faker.timeAndDate().between(
+        FakeType.ZIP_CODE -> faker.address().zipCode()
+        FakeType.CITY -> faker.address().city()
+        FakeType.STREET_NAME -> faker.address().streetName()
+        FakeType.STREET_ADDRESS -> faker.address().streetAddress()
+        FakeType.SECONDARY_ADDRESS -> faker.address().secondaryAddress()
+        FakeType.COUNTRY -> faker.address().country()
+        FakeType.COUNTRY_CODE -> faker.address().countryCode()
+        FakeType.STATE -> faker.address().state()
+        FakeType.STATE_ABBR -> faker.address().stateAbbr()
+        FakeType.LATITUDE -> faker.address().latitude()
+        FakeType.LONGITUDE -> faker.address().longitude()
+        FakeType.COLOR_NAME -> faker.color().name()
+        FakeType.PRODUCT_NAME -> faker.commerce().productName()
+        FakeType.MONEY -> faker.commerce().price()
+        FakeType.PRODUCT_MATERIAL -> faker.commerce().material()
+        FakeType.COMPANY_NAME -> faker.company().name()
+        FakeType.COMPANY_CATCH_PHRASE -> faker.company().catchPhrase()
+        FakeType.COMPANY_BS -> faker.company().bs()
+        FakeType.DATE -> faker.timeAndDate().between(
           GregorianCalendar(2000, 1, 1).toInstant(),
           GregorianCalendar(2023, 1, 1).toInstant()
         ).toString()
-        FakeType.pastDate -> faker.timeAndDate().past().toString()
-        FakeType.futureDate -> faker.timeAndDate().future().toString()
-        FakeType.currencyCode -> faker.money().currencyCode()
-        FakeType.currencyName -> faker.money().currency()
-        FakeType.currencySymbol -> faker.money().currencySymbol()
-        FakeType.internationalBankAccountNumber -> faker.finance().iban()
-        FakeType.bankIdentifierCode -> faker.finance().bic()
-        FakeType.hackerAbbreviation -> faker.hacker().abbreviation()
-        FakeType.imageUrl -> faker.internet().image()
-        FakeType.avatarUrl -> faker.avatar().image()
-        FakeType.email -> faker.internet().emailAddress()
-        FakeType.url -> faker.internet().url()
-        FakeType.domainName -> faker.internet().domainName()
-        FakeType.ipv4Address -> faker.internet().ipV4Address()
-        FakeType.ipv6Address -> faker.internet().ipV6Address()
-        FakeType.userAgent -> faker.internet().userAgent()
-        FakeType.colorHex -> faker.color().hex()
-        FakeType.macAddress -> faker.internet().macAddress()
-        FakeType.password -> faker.internet().password()
-        FakeType.lorem -> faker.lorem().sentence()
-        FakeType.firstName -> faker.name().firstName()
-        FakeType.lastName -> faker.name().lastName()
-        FakeType.fullName -> faker.name().fullName()
-        FakeType.jobTitle -> faker.job().title()
-        FakeType.phoneNumber -> faker.phoneNumber().phoneNumber()
-        FakeType.number -> random.nextInt()
-        FakeType.uuid -> faker.internet().uuid()
-        FakeType.word -> faker.lorem().word()
-        FakeType.words -> faker.lorem().words().joinToString(",")
-        FakeType.locale -> faker.locality().localeString()
-        FakeType.filename -> faker.file().fileName()
-        FakeType.mimeType -> faker.file().mimeType()
-        FakeType.fileExtension -> faker.file().extension()
-        FakeType.semver -> faker.app().version()
+        FakeType.PAST_DATE -> faker.timeAndDate().past().toString()
+        FakeType.FUTURE_DATE -> faker.timeAndDate().future().toString()
+        FakeType.CURRENCY_CODE -> faker.money().currencyCode()
+        FakeType.CURRENCY_NAME -> faker.money().currency()
+        FakeType.CURRENCY_SYMBOL -> faker.money().currencySymbol()
+        FakeType.INTERNATIONAL_BANK_ACCOUNT_NUMBER -> faker.finance().iban()
+        FakeType.BANK_IDENTIFIER_CODE -> faker.finance().bic()
+        FakeType.HACKER_ABBREVIATION -> faker.hacker().abbreviation()
+        FakeType.IMAGE_URL -> faker.internet().image()
+        FakeType.AVATAR_URL -> faker.avatar().image()
+        FakeType.EMAIL -> faker.internet().emailAddress()
+        FakeType.URL -> faker.internet().url()
+        FakeType.DOMAIN_NAME -> faker.internet().domainName()
+        FakeType.IPV4_ADDRESS -> faker.internet().ipV4Address()
+        FakeType.IPV6_ADDRESS -> faker.internet().ipV6Address()
+        FakeType.USER_AGENT -> faker.internet().userAgent()
+        FakeType.COLOR_HEX -> faker.color().hex()
+        FakeType.MAC_ADDRESS -> faker.internet().macAddress()
+        FakeType.PASSWORD -> faker.internet().password()
+        FakeType.LOREM -> faker.lorem().sentence()
+        FakeType.FIRST_NAME -> faker.name().firstName()
+        FakeType.LAST_NAME -> faker.name().lastName()
+        FakeType.FULL_NAME -> faker.name().fullName()
+        FakeType.JOB_TITLE -> faker.job().title()
+        FakeType.PHONE_NUMBER -> faker.phoneNumber().phoneNumber()
+        FakeType.NUMBER -> random.nextInt()
+        FakeType.UUID -> faker.internet().uuid()
+        FakeType.WORD -> faker.lorem().word()
+        FakeType.WORDS -> faker.lorem().words().joinToString(",")
+        FakeType.LOCALE -> faker.locality().localeString()
+        FakeType.FILENAME -> faker.file().fileName()
+        FakeType.MIME_TYPE -> faker.file().mimeType()
+        FakeType.FILE_EXTENSION -> faker.file().extension()
+        FakeType.SEMVER -> faker.app().version()
       }
     }
 
@@ -182,12 +184,12 @@ private fun GQLDirective.getIntArgument(name: String): Int? {
 }
 
 private fun GQLHasDirectives.findFakeSizes(schema: Schema): List<FakeSize> {
-  return directives.filter { schema.originalDirectiveName(it.name) == "listSize" }
+  return directives.filter { schema.originalDirectiveName(it.name) == "fakeList" }
     .map {
       FakeSize(
         level = it.getIntArgument("level") ?: 0,
-        min = it.getIntArgument("min")!!,
-        max = it.getIntArgument("max")!! + 1
+        min = it.getIntArgument("minSize")!!,
+        max = it.getIntArgument("maxSize")!! + 1
       )
     }
 }
@@ -208,7 +210,7 @@ private fun GQLValue.coerceToKotlin(): Any? {
 
 private fun GQLHasDirectives.findExamples(schema: Schema): List<Any?> {
   return directives
-    .firstOrNull { schema.originalDirectiveName(it.name) == "examples" }
+    .firstOrNull { schema.originalDirectiveName(it.name) == "fakeExamples" }
     ?.arguments
     ?.firstOrNull { it.name == "values" }
     ?.value
