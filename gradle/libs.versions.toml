@@ -20,3 +20,4 @@ librarian-gradle-plugin = "com.gradleup.librarian:librarian-gradle-plugin:0.0.8-
 gratatouille-gradle-plugin = { module = "com.gradleup.gratatouille:com.gradleup.gratatouille.gradle.plugin", version.ref = "gratatouille" }
 gratatouille-runtime = { module = "com.gradleup.gratatouille:gratatouille-runtime", version.ref = "gratatouille" }
 kotlinx-serialization-json = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.1"
+truth = "com.google.truth:truth:1.4.4"

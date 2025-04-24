@@ -86,7 +86,7 @@ class DataFakerResolver(private val locale: Locale = Locale.ROOT) : Resolver {
         FakeType.DATE -> faker.timeAndDate().between(
           GregorianCalendar(2000, 1, 1).toInstant(),
           GregorianCalendar(2023, 1, 1).toInstant()
-        ).toString()
+        ).toEpochMilli().toString()
         FakeType.PAST_DATE -> faker.timeAndDate().past().toString()
         FakeType.FUTURE_DATE -> faker.timeAndDate().future().toString()
         FakeType.CURRENCY_CODE -> faker.money().currencyCode()

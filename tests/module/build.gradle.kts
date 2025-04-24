@@ -13,6 +13,6 @@ apolloFaker {
 dependencies {
   implementation("com.apollographql.faker:resolver-datafaker")
   implementation(libs.apollo.execution)
-  implementation("com.google.truth:truth:1.4.4")
+  implementation(libs.truth)
   testImplementation(libs.kotlin.test)
 }
