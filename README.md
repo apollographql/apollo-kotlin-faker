@@ -44,7 +44,7 @@ Add the `com.apollographql.faker` plugin to your build scripts:
 ```kotlin
 plugins {
   id("org.jetbrains.kotlin.jvm").version("$kotlinVersion")
-  id("com.apollographql.faker").version("0.0.0")
+  id("com.apollographql.faker").version("0.0.1")
 }
 
 apolloFaker {
